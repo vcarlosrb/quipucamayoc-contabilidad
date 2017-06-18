@@ -1,0 +1,87 @@
+.partCreateProvider {
+    .whiteContent {
+        padding: 20px;
+        margin-bottom: 20px;
+        .pcpBlock {
+            h4 {
+                margin-left: 20px;
+                font-family: font9;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            .pc--Provider__button {
+                margin-top: 30px;
+                text-align: center;
+                .bttn {
+                    width: 200px;
+                    margin: 0 auto;
+                    min-height: 38px;
+                    padding: 0;
+                    span {
+                        line-height: 36px;
+                    }
+                }
+            }
+            .pc--Provider__form {
+                .pcp--form__3 {
+                    margin-bottom: 20px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    .pcp--form_item {
+                        width: 33%;
+                        float: left;
+                        padding: 0 20px;
+                    }
+                }
+                .pcp--form__2 {
+                    margin-bottom: 20px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    .pcp--form_item {
+                        width: 50%;
+                        float: left;
+                        padding: 0 20px;
+                    }
+                }
+                .pcp--form__4 {
+                    margin-bottom: 20px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    .pcp--form_item {
+                        width: 25%;
+                        float: left;
+                        padding: 0 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pcp--form_item {
+    p {
+        font-family: font8;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    select, input {
+        border: 1px solid #c8c8c8;
+        width: 100%;
+        height: 30px;
+        padding: 0 10px;
+        font-size: 12px;
+        font-family: font8;
+    }
+    .form__item--button {
+        .bttnBlue {
+            float: right;
+            width: 100px;
+        }
+        .Item__button--cont {
+            margin-right: 110px;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+<div class="partExpenses" ng-controller="ExpensesvalidateCtrl as Expenses">
+
+    <div class="pr--Expenses__buttons">
+        <div class="clearfix"></div>
+    </div>
+    <div class="Expenses--table">
+        <table class="tableContent">
+            <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Fecha</th>
+                <th>Documento</th>
+                <th>Serie</th>
+                <th>Numero</th>
+                <th>Prod/Serv/Glosario</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="expense in ExpensesData">
+                <td>{{expense.numGasto}}</td>
+                <td>{{expense.fecha}}</td>
+                <td>{{expense.tipoDocContable}}</td>
+                <td>{{expense.serie}}</td>
+                <td>{{expense.numDocContable}}</td>
+                <td>{{expense.descProveedor}}</td>
+                <td>{{expense.monto}}</td>
+                <td>
+                    <ul class="tableOptions">
+                        <li>
+                            <button title="Detalle" ng-click="Expenses.Events.goDetail(expense.idDocContable)">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="contLoader" ng-show="Services.loader == true">
+        <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+    </div>
+    <div class="emptyArray" ng-if="ExpensesData.length==0" ng-show="Services.loader == false">
+        <p>No hay gastos para mostrar.</p>
+    </div>
+    <div class="Pagination" ng-if="ExpensesData.length>0" ng-show="Services.loader == false">
+        <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+            ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+            first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+    </div>
+    <ul class="Refund--caption">
+        <li class="yellow">
+            <span>P</span>
+            <p>Por validar</p>
+        </li>
+        <li class="white">
+            <span>S</span>
+            <p>Valido</p>
+        </li>
+        <li class="orange">
+            <span>I</span>
+            <p>Por Corregir</p>
+        </li>
+        <li class="green">
+            <span>C</span>
+            <p>Corregido</p>
+        </li>
+        <li class="red">
+            <span>N</span>
+            <p>De baja</p>
+        </li>
+        <li class="blue">
+            <span>E</span>
+            <p>Excede los 45 dias</p>
+        </li>
+    </ul>
+
+</div>

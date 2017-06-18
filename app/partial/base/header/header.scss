@@ -1,0 +1,101 @@
+.partHeader {
+    height: 40px;
+    background-color: $blue;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    padding: 0 10px;
+
+    .phNav {
+        margin-top: 7px;
+        float: left;
+
+        img {
+            height: 20px;
+        }
+
+        .phnList,
+        h4 {
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        h4 {
+            color: white;
+            font-family: font1;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .phnList {
+            li {
+                display: inline-block;
+
+                select {
+                    border-radius: 2px;
+                    height: 25px;
+                    padding: 0 5px;
+                    background: white;
+                    font-family: font8;
+                    font-size: 12px;
+                    color: rgb(100, 100, 100);
+                }
+            }
+        }
+    }
+
+    .phDate {
+        float: right;
+        margin-right: 10px;
+        padding: 10px;
+        p {
+            color: white;
+            margin: 0;
+            font-family: font1;
+        }
+    }
+
+    .phUser {
+        float: right;
+
+        .phuCountdown, .phuDependence, .phuName, .phuNav {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .phuCountdown {
+            color: rgb(240, 240, 240);
+            margin-right: 50px;
+            i, div {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            div {
+                margin-left: 5px;
+                font-family: font9;
+                div {
+                    margin: 0;
+                }
+            }
+        }
+
+        .phuDependence, .phuName {
+            color: white;
+            font-family: font9;
+            font-size: 12px;
+            border-right: 1px solid white;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        .phuName {
+            border-right: none;
+            font-family: font8;
+        }
+        .phuNav {
+            i {
+                color: white;
+            }
+        }
+    }
+}

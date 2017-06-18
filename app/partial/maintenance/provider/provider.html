@@ -1,0 +1,104 @@
+<div class="partGeneral partProvider" ng-controller="ProviderCtrl as Provider">
+
+    <h1 class="pTitle">PROVEEDOR / SERVICIO A TERCEROS</h1>
+
+    <div class="whiteContent">
+        <div class="pswAddNew">
+            <div class="bttn bttnBlue" ng-click="Provider.ModalProvider.create()">
+                <i class="fa fa-plus-circle"></i> Nuevo proveedor
+            </div>
+        </div>
+        <div class="pswSearch">
+            <h4>Buscar</h4>
+            <div class="searchContent">
+                <ul class="scList">
+                    <li>
+                        <span><input type="radio" name="type" ng-model="Search.type" value="0"> RUC:</span>
+                        <div class="sclSecond">
+                            <input type="text" name="code" ng-model="Search.ruc" placeholder="Ingrese codigo" maxlength="11"
+                                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0">
+                        </div>
+                    </li>
+                    <li>
+                        <span><input type="radio" name="type" ng-model="Search.type" value="1">Razon Social:</span>
+                        <div class="sclSecond">
+                            <input type="text" name="code" ng-model="Search.businessName" placeholder="Ingrese nombre">
+                        </div>
+                    </li>
+                </ul>
+                <div class="bttn bttnBlue" ng-click="Provider.Services.search(Search)">
+                    <span ng-show="!Provider.Services.loader">Buscar</span>
+                    <div ng-show="Provider.Services.loader" class="loaderSpinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="whiteContent">
+        <table class="tableContent">
+            <thead>
+            <tr>
+                <th>RUC</th>
+                <th>Razon social / Nombre</th>
+                <th>Estado</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="provider in Providers" class="color_{{provider.estado}}">
+                <td>{{provider.ruc}}</td>
+                <td>{{provider.razonSocial || provider.nombre}}</td>
+                <td>{{provider.estado}}</td>
+                <td>{{provider.tipoProveedor}}</td>
+                <td>
+                    <ul class="tableOptions">
+                        <li ng-click="Provider.Events.goDetailProvider(provider)">
+                            <button>
+                                <md-tooltip md-direction="bottom">Detalle</md-tooltip>
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="contLoader" ng-show="Provider.Services.loader == true">
+            <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+        </div>
+        <div class="emptyArray" ng-if="Providers.length==0" ng-show="Provider.Services.loader == false">
+            <p>No hay resultados para mostrar.</p>
+        </div>
+
+        <div class="Pagination" ng-if="Providers.length>0" ng-show="Provider.Services.loader == false">
+            <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+        </div>
+
+        <ul class="Refund--caption rCaption">
+            <li class="yellow">
+                <span>P</span>
+                <p>Por validar</p>
+            </li>
+            <li class="white">
+                <span>S</span>
+                <p>Valido</p>
+            </li>
+            <li class="orange">
+                <span>I</span>
+                <p>Por corregir</p>
+            </li>
+            <li class="green">
+                <span>C</span>
+                <p>Corregido</p>
+            </li>
+            <li class="red">
+                <span>N</span>
+                <p>De baja</p>
+            </li>
+        </ul>
+    </div>
+
+</div>

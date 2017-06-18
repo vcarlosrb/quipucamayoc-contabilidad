@@ -1,0 +1,45 @@
+.modProviderList {
+    padding: 0 !important;
+    .whiteContent {
+        padding: 0 !important;
+        box-shadow: none !important;
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+        .pagination {
+            margin-bottom: 0;
+        }
+        .Provider__table {
+            max-height: 200px;
+            overflow-y: auto;
+            .tableContent {
+                margin-bottom: 10px;
+                tbody {
+                    tr {
+                        background-color: white;
+                        border-bottom: 1px solid rgb(230, 230, 230);
+                        cursor: pointer;
+                        @include transition(.3s all ease);
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                        &:hover {
+                            background-color: rgb(230, 230, 230) !important;
+                        }
+                    }
+                }
+            }
+        }
+        .pswSearch {
+            .searchContent {
+                .scList {
+                    li {
+                        .sclSecond {
+                            width: initial !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

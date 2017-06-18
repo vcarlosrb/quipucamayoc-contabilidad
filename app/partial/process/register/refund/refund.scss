@@ -1,0 +1,159 @@
+.blockImportant {
+    display: table-row !important;
+}
+
+.partRefund {
+    .whiteContent {
+        padding: 20px;
+        margin-bottom: 20px;
+        .pr--Refund__buttons {
+            margin-bottom: 30px;
+            .bttnBlue {
+                float: left;
+            }
+            .bttnGreen {
+                float: right;
+            }
+        }
+        .pr--Refund__wrapper {
+            .Refund__title {
+                text-align: center;
+                color: rgb(70, 70, 70);
+                font-family: font9;
+                font-size: 18px;
+                margin-bottom: 30px;
+                span {
+                    color: $blue;
+                }
+            }
+            .Refund__subtitle {
+                overflow: hidden;
+                .Subtitle__block {
+                    margin-bottom: 15px;
+                    float: left;
+                    width: 25%;
+                    text-align: center;
+                }
+            }
+            .Refund--table {
+                margin-bottom: 20px;
+                tbody {
+                    tr {
+                        cursor: pointer;
+                        td {
+                            text-align: center;
+                        }
+                    }
+                    .color_N {
+                        background-color: white;
+                    }
+                    .color_P {
+                        background-color: gainsboro;
+                    }
+                    .color_C {
+                        background-color: #AFAFFF;
+                    }
+                    .color_D {
+                        background-color: #FFC8FD;
+                    }
+                    .color_G {
+                        background-color: #9DD6B4;
+                    }
+                    .color_R {
+                        background-color: #FDBABA;
+                    }
+                }
+            }
+        }
+        .Refund--caption {
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 15px;
+                span, p {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 12px;
+                }
+                p {
+                    margin: 0;
+                }
+                span {
+                    border-radius: 2px;
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                }
+            }
+            .white {
+                span {
+                    border: 1px solid rgb(200, 200, 200);
+                }
+            }
+            .gray {
+                span {
+                    border: 1px solid rgb(200, 200, 200);
+                    background-color: rgb(220, 220, 220);
+                }
+            }
+            .blue {
+                span {
+                    border: 1px solid #7A91FF;
+                    background-color: #AFAFFF;
+                }
+            }
+            .pink {
+                span {
+                    border: 1px solid #F564FF;
+                    background-color: #FFC8FD;
+                }
+            }
+            .green {
+                span {
+                    border: 1px solid #73A785;
+                    background-color: #9DD6B4;
+                }
+            }
+            .red {
+                span {
+                    border: 1px solid #FF8989;
+                    background-color: #FDBABA;
+                }
+            }
+            .yellow {
+                span {
+                    border: 1px solid #C3C36E;
+                    background-color: #F7F772;
+                }
+            }
+            .orange {
+                span {
+                    border: 1px solid #F9B22D;
+                    background-color: #F7C872;
+                }
+            }
+        }
+    }
+    .Refund__variable {
+        display: none;
+        position: relative;
+        .rVariable__close {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            color: rgb(100, 100, 100);
+            font-size: 20px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 2px;
+            @include transition(.3s all ease);
+            &:hover {
+                background-color: rgb(240, 240, 240);
+            }
+        }
+    }
+}

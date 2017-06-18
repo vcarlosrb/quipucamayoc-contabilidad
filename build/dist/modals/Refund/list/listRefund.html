@@ -1,0 +1,52 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Reembolsos por mes</h4>
+    </div>
+    <div class="modal-body modRefundList">
+        <div class="lsButtons">
+            <button class="bttn bttnBlue" ng-click="Events.createFlying()">
+                <span>Nueva vuelta</span>
+            </button>
+        </div>
+        <div class="lsTable">
+            <div class="lsWrapper">
+                <table class="tableContent">
+                    <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Tipo Documento</th>
+                        <th>Numero Documento</th>
+                        <th>Estado</th>
+                        <th>Monto</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="refund in Refunds">
+                        <td>{{refund.mes}}</td>
+                        <td>{{refund.tipoDocumento}}</td>
+                        <td>{{refund.numDocumento}}</td>
+                        <td><input type="number" min="0" max="1" ng-model="refund.estadoVuelta"></td>
+                        <td>{{refund.montoVuelta}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contLoader" ng-show="Services.loader == true">
+                <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+            </div>
+            <div class="emptyArray" ng-if="Refunds.length==0" ng-show="Services.loader == false">
+                <p>No hay resultados para mostrar.</p>
+            </div>
+            <div class="Pagination" ng-if="Refunds.length>0" ng-show="Services.loader == false">
+                <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                    ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                    first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Services.updateRefunds()">Actualizar</button>
+    </div>
+</div>

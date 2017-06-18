@@ -1,0 +1,204 @@
+<div class="partCreateSpending" ng-controller="CreatespendingCtrl as Spending">
+
+    <a ui-sref="app.private.init.refund.structure.expenses" class="pcSpending__back">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+        <span>Lista de gastos</span>
+    </a>
+    <h3 class="pcSpending__title">Crear Gasto</h3>
+
+    <div class="pcSpending__form">
+        <div class="pcs--form__2">
+            <div class="pcs--form__input2">
+                <p>Tipo de Documento</p>
+                <div class="pcs--Picker">
+                    <div class="pcs--Picker__icon" ng-click="Spending.modalDocument.show()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="pcs--Picker__input">
+                        <div class="pcs--form_item">
+                            <input type="text" ng-model="Form.docContable.idTipoDocContable" placeholder="Codigo"
+                                   disabled>
+                        </div>
+                        <div class="pcs--form_item">
+                            <input type="text" ng-model="Form.docContable.descTipoDocContable" placeholder="Descripcion"
+                                   disabled>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="pcs--form__3">
+                <div class="pcs--form_item">
+                    <p>Serie</p>
+                    <input type="text" ng-model="Data.docContable.serieDocContable" placeholder="Serie">
+                </div>
+                <div class="pcs--form_item">
+                    <p>Numero</p>
+                    <input type="text" ng-model="Data.docContable.numDocContable" placeholder="Numero"
+                           onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0">
+                </div>
+                <div class="pcs--form_item">
+                    <p>Fecha Doc.</p>
+                    <md-datepicker ng-model="Form.fechaDocContable" md-placeholder="Enter date"
+                                   md-max-date="maxDate"></md-datepicker>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="pcs--form__2">
+            <div class="pcs--form_item pcs--form__3">
+                <div
+                    ng-if="Bill == false && Ticket == false && ReceiptFree == false && SalesTicket == false && GroundTicket == false">
+                    <p>Glosa</p>
+                    <textarea ng-model="Data.docContable.glosaDocContable"></textarea>
+                </div>
+                <div
+                    ng-if="Bill == true || Ticket == true || ReceiptFree == true || SalesTicket == true || GroundTicket == true">
+                    <p>Proveedor</p>
+                    <div class="pcs--RUC">
+                        <div class="pcs--form__input2">
+                            <div class="pcs--Picker">
+                                <div class="pcs--Picker__icon" ng-click="Spending.ModalProvider.show()">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <div class="pcs--Picker__input">
+                                    <div class="pcs--form_item">
+                                        <p>RUC</p>
+                                        <input type="text" placeholder="RUC" ng-model="Form.docContable.ruc" disabled>
+                                    </div>
+                                    <div class="pcs--form_item">
+                                        <p>Nombre</p>
+                                        <input type="text" placeholder="Nombre" ng-model="Form.docContable.nombre"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pcs--form_item pcs--form__input2">
+                <p>Impuestos</p>
+                <!--<textarea></textarea>-->
+                <div class="cont__checkbox">
+                    <md-checkbox ng-repeat="tax in Taxes" md-no-ink aria-label="Checkbox No Ink" class="md-primary"
+                                 ng-checked="Events.existsImp(tax, CurrentTaxes)"
+                                 ng-click="Events.toggleImp(tax, CurrentTaxes)">
+                        {{tax.abrevImpuesto}}
+                    </md-checkbox>
+                    <!--<md-radio-group ng-model="tax.idTipoImpuesto" ng-change="Events.selectImp(tax.idTipoImpuesto)">-->
+                    <!--<md-radio-button ng-repeat="tax in Taxes" value="{{tax.idTipoImpuesto}}" class="md-primary">-->
+                    <!--{{tax.abrevImpuesto}}-->
+                    <!--</md-radio-button>-->
+                    <!--</md-radio-group>-->
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="pcs--form_item">
+            <p>Concepto</p>
+            <textarea ng-model="Data.docContable.notaDocContable"></textarea>
+        </div>
+    </div>
+
+    <div class="pcSpending__tables">
+        <h5>
+            Dependencias
+            <div class="bttn bttnBlue" ng-click="Spending.ModalDependence.show()">Nueva dependencia</div>
+        </h5>
+        <div class="clearfix"></div>
+        <table class="tableContent tableDependence">
+            <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="dependences in Dependences">
+                <td>{{dependences.codDependencia}}</td>
+                <td>{{dependences.descDependencia}}</td>
+                <td>{{dependences.total}}</td>
+                <td>
+                    <ul class="tableOptions">
+                        <li ng-click="Events.deleteDependence($index)">
+                            <button title="Eliminar dependencia">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </li>
+                        <li ng-click="Events.selectDependence($event, dependences)">
+                            <button title="Obtener clasificador">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="emptyArray" ng-if="Dependences.length==0">
+            <p>No hay dependencias para mostrar.</p>
+        </div>
+    </div>
+
+    <div class="pcSpending__tables">
+        <h5>
+            Clasificador de Gastos
+            <div ng-show="Dependences.length>0 && idCurrentDependence" class="bttn bttnBlue"
+                 ng-click="Spending.ModalSorter.show()">
+                Clasificador
+            </div>
+        </h5>
+        <div class="clearfix"></div>
+        <table class="tableContent tableSorter">
+            <thead>
+            <tr>
+                <th>Int</th>
+                <th>Descripcion</th>
+                <th>Base imponible</th>
+                <th ng-show="CurrentTaxes.length > 0" ng-repeat="tax in CurrentTaxes">{{tax.abrevImpuesto}}</th>
+                <th>Total MD BR</th>
+                <th>Total MN BR</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in Sorters">
+                <td>{{item.cadclasificador}}</td>
+                <td>{{item.descespecifica}}</td>
+                <td><input type="text" ng-model="item.base" ng-change="Events.calculateImp(item.base, item, $index)"></td>
+                <td ng-show="CurrentTaxes.length > 0" ng-repeat="tax in item.taxes">
+                    <input type="text" id="tax_{{tax.idTipoImpuesto}}_{{$parent.$index}}" ng-model="tax.impTotal"  ng-change="Events.otherImp(item, $parent.$index)">
+                </td>
+                <td>{{item.partial}}</td>
+                <td>{{item.total}}</td>
+                <td>
+                    <ul class="tableOptions">
+                        <li ng-click="Events.deleteSorter($index)">
+                            <button title="eliminar clasificador">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="emptyArray" ng-if="Sorters.length==0">
+            <p>No hay clasificadores para mostrar.</p>
+        </div>
+    </div>
+
+    <div class="pcSpending__button">
+        <div class="bttn bttnBlue" ng-click="Services.saveSpend()">
+            <span>Guardar Gasto</span>
+        </div>
+    </div>
+
+</div>

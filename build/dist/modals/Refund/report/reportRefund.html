@@ -1,0 +1,28 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Listado de reembolsos</h4>
+    </div>
+    <div class="modal-body modRefundReport">
+        <div class="mrr__content">
+            <ul>
+                <li>
+                    <span class="first">Fecha inicio:</span>
+                    <div class="second">
+                        <md-datepicker ng-model="Form.starDate" md-placeholder="Fecha inicio"></md-datepicker>
+                    </div>
+                </li>
+                <li>
+                    <span class="first">Fecha fin:</span>
+                    <div class="second">
+                        <md-datepicker ng-model="Form.endDate" md-placeholder="Fecha final"></md-datepicker>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Services.report(Form)">Ver reporte</button>
+    </div>
+</div>

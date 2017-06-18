@@ -1,0 +1,375 @@
+.pcSpending__back {
+    margin-bottom: 10px;
+    display: inline-block;
+    color: $blue;
+    font-size: 12px;
+    text-decoration: none !important;
+    i, span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.emptyArray {
+    padding: 20px 0;
+    text-align: center;
+    p {
+        font-size: 20px;
+        color: #A2A2A2;
+        font-family: font6;
+        margin: 0;
+    }
+}
+
+.bttn {
+    text-decoration: none !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+    display: inline-block;
+    font-family: font9;
+    font-size: 12px;
+    padding: 5px 15px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    color: white !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.bttnBlue {
+    background-color: $blue;
+}
+
+.bttnRed {
+    background-color: $red;
+}
+
+.bttnGreen {
+    background-color: $green;
+}
+
+.bttnGray {
+    background-color: $grayText;
+}
+
+.contLoader {
+    text-align: center;
+    padding: 20px 0;
+    md-progress-circular {
+        margin: 0 auto;
+    }
+}
+
+.tags {
+    margin-left: 5px;
+    color: #787878 !important;
+    background-color: white;
+    padding: 3px 5px;
+    border-radius: 2px;
+    text-decoration: none !important;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.12);
+    @include transition(.3s all ease);
+
+    &:hover {
+        background-color: rgb(235, 235, 235);
+    }
+}
+
+.biValid {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #FF6262;
+    font-size: 16px;
+}
+
+.borderInput {
+    position: relative;
+
+    .ibcBirthday,
+    input,
+    textarea {
+        width: 100%;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-family: font8;
+        border-bottom: 2px solid $blue;
+    }
+
+    &:after,
+    &:before {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        height: 6px;
+        width: 2px;
+        background-color: $blue;
+    }
+
+    &:after {
+        left: 0;
+    }
+
+    &:before {
+        right: 0;
+    }
+}
+
+.createValid,
+.validError {
+    margin-bottom: 10px;
+
+    p {
+        color: #FF6262;
+        margin-bottom: 0;
+        font-size: 12px;
+        font-family: font9;
+    }
+}
+
+.inputError {
+    border: 1px solid #FD2020 !important;
+}
+
+.partGeneral {
+    h1 {
+        color: #777;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-family: font6;
+        font-weight: normal;
+    }
+}
+
+.whiteContent {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+.tableContent {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid rgb(200, 200, 200);
+    thead {
+        background-color: $blue;
+        th {
+            text-align: center;
+            color: white;
+            font-family: font8;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+    tbody {
+        tr {
+            &:nth-child(2n) {
+                background-color: rgb(240, 240, 240);
+            }
+        }
+        td {
+            color: #5F5F5F;
+            text-align: center;
+            font-family: font8;
+            font-size: 14px;
+            padding: 7px;
+        }
+    }
+}
+
+.tableOptions {
+    li {
+        display: inline-block;
+        width: 30px;
+        height: 25px;
+        button {
+            text-align: center;
+            background-color: rgb(220, 220, 220);
+            @include transition(.3s all ease);
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgb(200, 200, 200);
+            border-radius: 2px;
+            &:hover {
+                background-color: rgb(200, 200, 200);
+            }
+        }
+    }
+}
+
+.tableAccordion {
+    border: 2px solid $blue;
+    .tbBlock {
+        .tbText {
+            cursor: pointer;
+            padding: 5px 10px;
+            .tbtCheck {
+                float: right;
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 17px;
+                background-color: white;
+                border-radius: 2px;
+                border: 2px solid $blue;
+                i {
+                    opacity: 0;
+                    @include transition(.3s all ease);
+                }
+                &:hover {
+                    i {
+                        opacity: .5;
+                    }
+                }
+            }
+            .active {
+                i {
+                    opacity: 1 !important;
+                }
+            }
+            .tbtContent {
+                margin-right: 25px;
+                i {
+                    float: left;
+                    margin-top: 3px;
+                }
+                p {
+                    margin-left: 15px;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                    font-family: font8;
+                }
+            }
+        }
+        .tbBlock {
+            display: none;
+            .tbText {
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .initList {
+        .tbText {
+            background-color: rgb(210, 210, 210);
+        }
+    }
+    .firstSub {
+        .tbText {
+            padding: 5px 10px 5px 15px;
+            background-color: rgb(230, 230, 230);
+        }
+    }
+    .secondSub {
+        .tbText {
+            padding: 5px 10px 5px 30px;
+            background-color: rgb(250, 250, 250);
+        }
+    }
+}
+
+.Pagination {
+    text-align: center;
+    ul {
+        display: inline-block;
+    }
+}
+
+.Message__error {
+    padding-top: 10px;
+    p {
+        font-size: 12px;
+        font-family: font9;
+        color: #FB3A3A;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.contBack {
+    margin-bottom: 10px;
+    .back {
+        padding: 5px 0;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 12px;
+        color: rgb(150, 150, 150);
+        i, span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        i {
+            margin-right: 7px;
+        }
+    }
+}
+
+.tableSearch {
+    thead {
+        tr {
+            th {
+                padding: 0 10px;
+                input {
+                    display: block;
+                    height: 35px;
+                    padding: 0 10px;
+                    border: 1px solid rgb(230,230,230);
+                }
+            }
+        }
+    }
+}
+
+.loaderSpinner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &:before, &:after{
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+    }
+    &:before{
+        background-color: #6a486d;
+        left: 50%;
+        animation: animation_left_round 1.8s infinite ease-in-out;
+    }
+    &:after{
+        background-color: white;
+        right: 50%;
+        animation: animation_right_round 1.8s infinite ease-in-out;
+    }
+}
+
+@keyframes animation_left_round{
+    0%, 100%{
+        transform: translate3d(50%, -50%, 0);
+    }
+    50%{
+        transform: translate3d(-150%, -50%, 0);
+    }
+}
+
+@keyframes animation_right_round{
+    0%, 100%{
+        transform: translate3d(-50%, -50%, 0);
+    }
+    50%{
+        transform: translate3d(150%, -50%, 0);
+    }
+}

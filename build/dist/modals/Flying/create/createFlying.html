@@ -1,0 +1,50 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Listado de reembolsos</h4>
+    </div>
+    <div class="modal-body modFlying">
+        <div class="mf__content">
+            <ul>
+                <li>
+                    <span class="first">Mes:</span>
+                    <div class="second">
+                        <select ng-model="Form.month">
+                            <option value="{{month.id}}" ng-repeat="month in Months">{{month.name}}</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span class="first">Tipo documento:</span>
+                    <div class="second">
+                        <div class="double">
+                            <div class="button" ng-click="Events.modalDocument()">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <div class="input">
+                                <input type="text" placeholder="codigo">
+                                <input type="text" placeholder="Descripcion">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <span class="first">Numero documento:</span>
+                    <div class="second">
+                        <input type="text" ng-model="Form.numDocumento">
+                    </div>
+                </li>
+                <li>
+                    <span class="first">Monto:</span>
+                    <div class="second">
+                        <input type="text" ng-model="Form.montoVuelta">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="">Aceptar</button>
+    </div>
+</div>

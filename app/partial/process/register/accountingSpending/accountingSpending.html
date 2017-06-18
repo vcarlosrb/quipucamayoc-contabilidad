@@ -1,0 +1,149 @@
+<div class="partCreateSpending" ng-controller="AccountingspendingCtrl as Accounting">
+
+    <h3 class="pcSpending__title">Registro Contable</h3>
+    <table class="tableContent">
+        <thead>
+        <tr>
+            <th>Especifica</th>
+            <th>Descripcion</th>
+            <th>Monto</th>
+            <th>Meta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="expense in Expenses">
+            <td>{{expense.especifica}}</td>
+            <td>{{expense.descripcion}}</td>
+            <td>{{expense.monto}}</td>
+            <td>{{expense.meta}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="contLoader" ng-show="Services.loader == true">
+        <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+    </div>
+    <div class="emptyArray" ng-if="Expenses.length==0" ng-show="Services.loader == false">
+        <p>No hay gastos para mostrar.</p>
+    </div>
+
+    <div class="Pagination" ng-if="Expenses.length>0" ng-show="Services.loader == false">
+        <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+            ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+            first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+    </div>
+    <div class="pcSpending__form">
+        <div class="Form__block">
+            <ul>
+                <li>
+                    <p class="bFirst">Fuente</p>
+                    <div class="bSecond bSecond--two">
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.idFuenteFinan" disabled>
+                        </div>
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.descFuenteFinan" disabled>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">Flujo</p>
+                    <div class="bSecond bSecond--two">
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.idFlujo" disabled>
+                        </div>
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.descFlujo" disabled>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">T. Doc</p>
+                    <div class="bSecond bSecond--two">
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.codTipoDocContable" disabled>
+                        </div>
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.concepto" disabled>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">Numero</p>
+                    <div class="bSecond bSecond--two">
+                        <div class="Cont__input">
+                            <input type="text" ng-model="Form.numReembolso" disabled>
+                        </div>
+                        <div class="Cont__input Cont__input--inset">
+                            <p>Fecha</p>
+                            <div class="Cont__input">
+                                <input type="text" ng-model="Form.fechaCreacion" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="Form__block">
+            <ul>
+                <li>
+                    <p class="bFirst">Proyecto</p>
+                    <div class="bSecond bSecond--search">
+                        <div class="Cont__search" ng-click="Accounting.Modal.project()">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="Cont__input first">
+                            <input type="text" placeholder="Codigo" ng-model="Form.codProyConvenio" disabled>
+                        </div>
+                        <div class="Cont__input second">
+                            <input type="text" placeholder="Descripcion" ng-model="Form.descProyConvenio" disabled>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">T. Oper</p>
+                    <div class="bSecond bSecond--search">
+                        <div class="Cont__input first">
+                            <input type="text" ng-model="Form.idTipoOperacion" disabled>
+                        </div>
+                        <div class="Cont__input second">
+                            <input type="text" ng-model="Form.tipoOperacion" disabled>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">Area</p>
+                    <div class="bSecond bSecond--search">
+                        <div class="Cont__search" ng-click="Accounting.Modal.area()">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="Cont__input first">
+                            <input type="text" placeholder="Codigo" ng-model="Form.codArea" disabled>
+                        </div>
+                        <div class="Cont__input second">
+                            <input type="text" placeholder="Descripcion" ng-model="Form.descArea" disabled>
+                        </div>
+                        <div class="bError" ng-show="Form.codArea == '' || Form.codArea == undefined">
+                            <p>* Debe seleccionar un area</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <p class="bFirst">Glosario</p>
+                    <div class="bSecond">
+                        <div class="Cont__input">
+                            <input type="text" disabled ng-model="Form.glosa">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="Form__textarea">
+            <p>Concepto</p>
+            <textarea placeholder="Reembolso de caja chica" disabled ng-model="Form.concepto"></textarea>
+        </div>
+        <div class="Form__button">
+            <div class="bttn bttnBlue" ng-click="Services.generateAccountingRecord(Form)">Generar registro contable</div>
+        </div>
+    </div>
+</div>

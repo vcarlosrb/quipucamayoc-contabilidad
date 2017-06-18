@@ -1,0 +1,67 @@
+.modStudent {
+    .lsSearch {
+        margin-bottom: 20px;
+        .bttn {
+            width: 100px;
+            float: right;
+        }
+        .lsInput {
+            margin-right: 110px;
+            input {
+                width: 100%;
+                height: 30px;
+                font-size: 12px;
+                font-family: font8;
+                padding: 0 10px;
+                background-color: white;
+                border: 1px solid #D8D6D6;
+                border-radius: 2px;
+            }
+        }
+    }
+    .lsWrapper {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+    .tableContent {
+        margin-bottom: 10px;
+        tbody {
+            tr {
+                background-color: white;
+                border-bottom: 1px solid rgb(230, 230, 230);
+                cursor: pointer;
+                @include transition(.3s all ease);
+                &:last-child {
+                    border-bottom: none;
+                }
+                &:hover {
+                    background-color: rgb(230, 230, 230) !important;
+                }
+            }
+        }
+    }
+    .tablePaginate {
+        overflow: hidden;
+        text-align: center;
+        li {
+            display: inline-block;
+            font-size: 0;
+            a {
+                display: block;
+                width: 30px;
+                height: 30px;
+                border-radius: 2px;
+                line-height: 30px;
+                font-size: 12px;
+                font-family: font1;
+                color: rgb(100, 100, 100);
+                background-color: rgb(240, 240, 240);
+                text-decoration: none !important;
+                @include transition(.3s all ease);
+                &:hover {
+                    background-color: rgb(220, 220, 220);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.modTypeDocument {
+    .mtd__inputs {
+        margin-bottom: 15px;
+        .mtd--Input__item {
+            width: 50%;
+            float: left;
+            padding: 0 5px;
+            input {
+                border: 1px solid #c8c8c8;
+                width: 100%;
+                height: 30px;
+                padding: 0 10px;
+                font-size: 12px;
+                font-family: font8;
+            }
+        }
+    }
+    .mtd__table {
+        max-height: 313px;
+        overflow-y: auto;
+        .tableContent {
+            margin-bottom: 10px;
+            tbody {
+                tr {
+                    background-color: white;
+                    border-bottom: 1px solid rgb(230, 230, 230);
+                    cursor: pointer;
+                    @include transition(.3s all ease);
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &:hover {
+                        background-color: rgb(230, 230, 230) !important;
+                    }
+                }
+            }
+        }
+    }
+}

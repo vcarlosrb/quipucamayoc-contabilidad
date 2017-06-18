@@ -1,0 +1,52 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Area</h4>
+    </div>
+    <div class="modal-body">
+        <div class="modTypeDocument">
+            <!--<div class="mtd__inputs">-->
+            <!--<div class="mtd&#45;&#45;Input__item">-->
+            <!--<input type="text" placeholder="Codigo" ng-model="Filter.code">-->
+            <!--</div>-->
+            <!--<div class="mtd&#45;&#45;Input__item">-->
+            <!--<input type="text" placeholder="Descripcion" ng-model="Filter.description">-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+            <div class="mtd__table">
+                <table class="tableContent">
+                    <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Descripcion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="area in Areas"
+                        ng-click="Events.selectProject($event, area)">
+                        <td>{{area.codArea}}</td>
+                        <td>{{area.descArea}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contLoader" ng-show="Services.loader == true">
+                <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+            </div>
+            <div class="emptyArray" ng-if="Areas.length==0" ng-show="Services.loader == false">
+                <p>No hay gastos para mostrar.</p>
+            </div>
+
+            <div class="Pagination" ng-if="Areas.length>0" ng-show="Services.loader == false">
+                <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                    ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                    first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Events.accept()">Aceptar</button>
+    </div>
+</div>

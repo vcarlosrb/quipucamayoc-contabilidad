@@ -1,0 +1,70 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Servidor Terceros</h4>
+    </div>
+    <div class="modal-body">
+        <div class="partGeneral partProvider modProviderList">
+            <div class="whiteContent">
+                <div class="pswSearch">
+                    <div class="searchContent">
+                        <ul class="scList">
+                            <li>
+                                <span><input type="radio" name="type" ng-model="Search.type" value="0"> RUC:</span>
+                                <div class="sclSecond">
+                                    <input type="text" name="code" ng-model="Search.ruc" placeholder="Ingrese codigo" maxlength="11">
+                                </div>
+                            </li>
+                            <li>
+                                <span><input type="radio" name="type" ng-model="Search.type" value="1">Razon Social:</span>
+                                <div class="sclSecond">
+                                    <input type="text" name="code" ng-model="Search.businessName" placeholder="Ingrese nombre">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="bttn bttnBlue" ng-click="Services.search(Search)">
+                            <span ng-show="!Services.loader">Buscar</span>
+                            <div ng-show="Services.loader" class="loaderSpinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="whiteContent">
+                <div class="Provider__table">
+                    <table class="tableContent">
+                        <thead>
+                        <tr>
+                            <th>RUC</th>
+                            <th>Razon social / Nombre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="provider in Providers" ng-click="Events.select($event, provider)">
+                            <td>{{provider.ruc}}</td>
+                            <td>{{provider.razonSocial || provider.nombre}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="contLoader" ng-show="Services.loader == true">
+                    <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+                </div>
+                <div class="emptyArray" ng-if="Providers.length==0" ng-show="Services.loader == false">
+                    <p>No hay resultados para mostrar.</p>
+                </div>
+
+                <div class="Pagination" ng-if="Providers.length>0" ng-show="Services.loader == false">
+                    <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                        ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                        first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Events.accept()">Aceptar</button>
+    </div>
+</div>

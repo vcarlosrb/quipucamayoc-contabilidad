@@ -1,0 +1,27 @@
+.modSorter {
+    .ms--Inputs {
+        margin-bottom: 15px;
+        input {
+            width: 100%;
+            height: 30px;
+            font-size: 12px;
+            font-family: font8;
+            padding: 0 10px;
+            background-color: white;
+            border: 1px solid #D8D6D6;
+            border-radius: 2px;
+        }
+    }
+    .ms--Table {
+        max-height: 300px;
+        overflow-y: auto;
+        .tableContent {
+            tbody {
+                tr {
+                    background-color: white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

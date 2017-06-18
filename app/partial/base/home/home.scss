@@ -1,0 +1,15 @@
+.partHome {
+    height: 100%;
+    .whiteContent {
+        position: relative;
+        height: 100%;
+        div {
+            position: absolute;
+            top: 50%;
+            @include transform(translateY(-50%));
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

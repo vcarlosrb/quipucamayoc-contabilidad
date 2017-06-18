@@ -1,0 +1,40 @@
+<div class="partHeader" ng-controller="HeaderCtrl">
+
+    <div class="phNav">
+        <h4>MODULO DE CONTABILIDAD</h4>
+    </div>
+    <div class="phUser">
+        <div class="phuCountdown">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <!--<div id="getting-started"></div>-->
+            <div id="clockdiv">
+                <div>
+                    <span class="minutes"></span>
+                </div>
+                <span>:</span>
+                <div>
+                    <span class="seconds"></span>
+                </div>
+            </div>
+        </div>
+        <div class="phuDependence">{{UserSession.codDependence}} - {{UserSession.descDependence}}</div>
+        <div class="phuName">{{UserSession.email}}</div>
+        <div class="phuNav">
+            <md-menu md-position-mode="target-right target">
+                <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="Services.logout()">
+                            <div layout="row" flex>
+                                <p flex>Cerrar sesión</p>
+                            </div>
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div class="partGeneral partStockbroker" ng-controller="StockbrokerCtrl as Stockbroker">
+
+    <h1 class="pTitle">BOLSISTAS</h1>
+    <div class="whiteContent">
+        <div class="pswAddNew">
+            <div class="bttn bttnBlue" ng-click="Stockbroker.ModalStockbroker.create()">
+                <i class="fa fa-plus-circle"></i> Agregar nuevo
+            </div>
+        </div>
+        <div class="pswSearch">
+            <h4>Buscar</h4>
+            <div class="searchContent">
+                <ul class="scList">
+                    <li>
+                        <span>
+                            <input type="radio" name="type" ng-model="Search.type" value="0">
+                            Codigo:
+                        </span>
+                        <div class="sclSecond">
+                            <input type="text" name="code" ng-model="Search.code" placeholder="Ingrese codigo"
+                                   onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0">
+                        </div>
+                    </li>
+                    <li>
+                        <span>
+                            <input type="radio" name="type" ng-model="Search.type" value="1">
+                            Nombre:
+                        </span>
+                        <div class="sclSecond">
+                            <input type="text" name="code" ng-model="Search.name" placeholder="Ingrese nombre">
+                        </div>
+                    </li>
+                </ul>
+                <div class="bttn bttnBlue" ng-click="Stockbroker.Services.search(Search)">
+                    <span ng-show="!Stockbroker.Services.loader">Buscar</span>
+                    <div ng-show="Stockbroker.Services.loader" class="loaderSpinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="whiteContent">
+        <table class="tableContent">
+            <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Facultad-Escuela</th>
+                <th>Apellidos y Nombres</th>
+                <!--<th>Dependencia</th>-->
+                <th>DNI</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="stockbroker in Stockbrokers">
+                <td>{{stockbroker.codMatricula}}</td>
+                <td>{{stockbroker.codDependenciaPertenece}} - {{stockbroker.descDependenciaPertenece}}</td>
+                <td>{{stockbroker.nombreComp}}</td>
+                <td>{{stockbroker.dniAlumno}}</td>
+                <td>
+                    <ul class="tableOptions">
+                        <li ng-click="Stockbroker.ModalStockbroker.detail(stockbroker)">
+                            <button>
+                                <md-tooltip md-direction="bottom">Detalle</md-tooltip>
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </li>
+                        <li ng-click="Stockbroker.Events.deleteStockbroker(stockbroker, $index)">
+                            <button>
+                                <md-tooltip md-direction="bottom">Eliminar</md-tooltip>
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </li>
+                        <li ng-click="Stockbroker.ModalStockbroker.edit(stockbroker)">
+                            <button>
+                                <md-tooltip md-direction="bottom">Editar</md-tooltip>
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="contLoader" ng-show="Stockbroker.Services.loader == true">
+            <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+        </div>
+        <div class="emptyArray" ng-if="Stockbrokers.length==0" ng-show="Stockbroker.Services.loader == false">
+            <p>No hay resultados para mostrar.</p>
+        </div>
+
+        <div class="Pagination" ng-if="Stockbrokers.length>0" ng-show="Stockbroker.Services.loader == false">
+            <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+        </div>
+
+    </div>
+</div>

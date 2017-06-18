@@ -1,0 +1,164 @@
+<div class="partPanel" ng-controller="PanelCtrl as Panel">
+
+    <h3>MENU</h3>
+    <ul>
+        <li>
+            <a href="" ng-click="Panel.Events.toggleMenu($event)">
+                <i class="fa fa-cogs"></i> Mantenimiento
+            </a>
+            <div class="subItems">
+                <ul>
+                    <li ng-if="profileId == 103 || profileId == 104 || profileId == 105 || profileId == 106">
+                        <a ui-sref="app.private.init.stockbroker" ui-sref-active="active">
+                            Bolsistas
+                        </a>
+                    </li>
+                    <li ng-if="profileId == 103 || profileId == 104 || profileId == 105 || profileId == 106">
+                        <a ui-sref="app.private.init.provider" ui-sref-active="active">
+                            Proveedor/ Serv. a Tercero
+                        </a>
+                    </li>
+                    <!--<li>-->
+                    <!--<a href="">-->
+                    <!--Cierre de precompromiso-->
+                    <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                    <!--<a href="">-->
+                    <!--Ver Calendario-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="" ng-click="Panel.Events.toggleMenu($event)"
+               ng-if="profileId == 103 || profileId == 104 || profileId == 105 || profileId == 106">
+                <i class="fa fa-cog"></i> Procesos
+            </a>
+            <div class="subItems">
+                <ul>
+                    <li>
+                        <a href="" ng-click="Panel.Events.subToggleMenu($event)" ng-if="profileId == 105">
+                            Validar
+                        </a>
+                        <div class="secondSubItems">
+                            <ul>
+                                <li ng-if="profileId == 105">
+                                    <a ui-sref="app.private.init.refundValidate.init" ui-sref-active="active">
+                                        Reembolso de caja chica
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" ng-click="Panel.Events.subToggleMenu($event)"
+                           ng-if="profileId == 103 || profileId == 104">
+                            Registrar
+                        </a>
+                        <div class="secondSubItems">
+                            <ul>
+                                <!--<li>-->
+                                <!--<a href="">-->
+                                <!--Registro Quipu-->
+                                <!--</a>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                <!--<a href="">-->
+                                <!--Orden de Compra/Servicio-->
+                                <!--</a>-->
+                                <!--</li>-->
+                                <li ng-if="profileId == 103 || profileId == 104">
+                                    <a ui-sref="app.private.init.refund.init" ui-sref-active="active">
+                                        Reembolso de caja chica
+                                    </a>
+                                </li>
+                                <!--<li ng-if="profileId == 103 || profileId == 104">-->
+                                <!--<a href="">-->
+                                <!--Planilla propinas-->
+                                <!--</a>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" ng-click="Panel.Events.subToggleMenu($event)"
+                           ng-if="profileId == 105 || profileId == 106">
+                            Administrar
+                        </a>
+                        <div class="secondSubItems">
+                            <ul>
+                                <li ng-if="profileId == 105 || profileId == 106">
+                                    <a ui-sref="app.private.init.openingCash" ui-sref-active="active">
+                                        Apertura Caja Chica
+                                    </a>
+                                </li>
+                                <li ng-if="profileId == 105 || profileId == 106">
+                                    <a ui-sref="app.private.init.settlementCash" ui-sref-active="active">
+                                        Liquidacion Caja Chica
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!--<li>-->
+        <!--<a href="" ng-click="Panel.Events.toggleMenu($event)">-->
+        <!--<i class="fa fa-list"></i> Consultas-->
+        <!--</a>-->
+        <!--<div class="subItems">-->
+        <!--<ul>-->
+        <!--<li>-->
+        <!--<a href="">-->
+        <!--Registros-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="">-->
+        <!--Anulacion/Devolucion-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="" ng-click="Panel.Events.toggleMenu($event)">-->
+        <!--<i class="fa fa-list-alt"></i> Reportes-->
+        <!--</a>-->
+        <!--<div class="subItems">-->
+        <!--<ul>-->
+        <!--<li>-->
+        <!--<a href="">-->
+        <!--Reportes presupuestales-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</li>-->
+        <li>
+            <a href="" ng-click="Panel.Events.toggleMenu($event)">
+                <i class="fa fa-calendar"></i> Seleccion
+            </a>
+            <div class="subItems">
+                <ul>
+                    <li>
+                        <a href="" ng-click="Panel.Events.showCalendar()">
+                            Seleccione Fecha
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <div class="PanelDate">
+        <p>Fecha actual</p>
+        <span>Mes de {{DateGlobal.month.name}} del {{DateGlobal.year}}</span>
+    </div>
+
+    <img class="logo" src="assets/images/logo.png" alt="">
+
+</div>

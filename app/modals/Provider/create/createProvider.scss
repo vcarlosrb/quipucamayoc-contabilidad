@@ -1,0 +1,17 @@
+.modProvider {
+    text-align: center;
+    p {
+        font-family: font1;
+        margin-bottom: 15px;
+    }
+    ul {
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            .bttnBlue {
+                padding: 10px 0;
+                width: 150px;
+            }
+        }
+    }
+}

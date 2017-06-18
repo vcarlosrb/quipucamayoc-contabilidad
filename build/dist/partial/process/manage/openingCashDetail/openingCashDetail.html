@@ -1,0 +1,168 @@
+<div class="partGeneral partOpeningCashDetail" ng-controller="OpeningcashdetailCtrl">
+
+    <a ui-sref="app.private.init.openingCash" class="pcSpending__back">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+        <span>Apertura de caja chica</span>
+    </a>
+    <h1 class="pTitle">DETALLE DE CAJA</h1>
+
+    <div class="whiteContent">
+        <div class="Content__10">
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Año de apertura</p>
+                    <input type="text" ng-model="Form.anioApertura"
+                           ng-class="{true: 'inputError'}[Valid.anioApertura]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Codigo caja</p>
+                    <input type="text" ng-model="Form.codCajaChica"
+                           ng-class="{true: 'inputError'}[Valid.codCajaChica]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Año Registro</p>
+                    <input type="text" ng-model="Form.anioRegistro"
+                           ng-class="{true: 'inputError'}[Valid.anioRegistro]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Nro Registro</p>
+                    <input type="text" ng-model="Form.idRegContable"
+                           ng-class="{true: 'inputError'}[Valid.idRegContable]">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Content__10">
+            <div class="Content__modal Content__6">
+                <p>Dependencia</p>
+                <div class="Modal__wrapper">
+                    <div class="wrapper__search" ng-click="Events.modalDependence()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="Content__10">
+                        <div class="Content__3">
+                            <div class="Content__input">
+                                <input type="text" ng-model="Form.codDependencia" disabled
+                                       ng-class="{true: 'inputError'}[Valid.codDependencia]">
+                            </div>
+                        </div>
+                        <div class="Content__7">
+                            <div class="Content__input">
+                                <input type="text" ng-model="Form.descDependencia" disabled
+                                       ng-class="{true: 'inputError'}[Valid.descDependencia]">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="Content__10">
+            <div class="Content__2">
+                <div class="Content__input">
+                    <p>Nombre de responsable</p>
+                    <input type="text" ng-model="Form.nombreResponsable" style="text-transform: uppercase"
+                           ng-class="{true: 'inputError'}[Valid.nombreResponsable]">
+                </div>
+            </div>
+            <div class="Content__2">
+                <div class="Content__input">
+                    <p>Nombre de encargado</p>
+                    <input type="text" ng-model="Form.nombreEncargado"
+                           ng-class="{true: 'inputError'}[Valid.nombreEncargado]">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Content__10">
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Monto de reembolso</p>
+                    <input type="text" ng-model="Form.montoMensual"
+                           ng-class="{true: 'inputError'}[Valid.montoMensual]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Monto max por documento</p>
+                    <input type="text" ng-model="Form.montoMaxDoc"
+                           ng-class="{true: 'inputError'}[Valid.montoMaxDoc]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Meta</p>
+                    <input type="text" ng-model="Form.idNumMeta" maxlength="4"
+                           ng-class="{true: 'inputError'}[Valid.idNumMeta]">
+                </div>
+            </div>
+            <div class="Content__4">
+                <div class="Content__input">
+                    <p>Reembolsos</p>
+                    <div class="bttn bttnBlue" ng-click="Events.reportRefund()">Lista de reembolsos</div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Content__10">
+            <div class="Content__2">
+                <div class="Content__input">
+                    <p>Email de usuario</p>
+                    <input type="text" ng-model="Form.emailUser"
+                           ng-class="{true: 'inputError'}[Valid.emailUser]">
+                </div>
+            </div>
+            <div class="Content__2">
+                <div class="Content__input">
+                    <p>Numero de reembolsos</p>
+                    <div class="Input__refund">
+                        <!--<div ng-if="profileId == 106" class="bttn bttnBlue" ng-click="Events.modalRefund()">Asignar mensualmente</div>-->
+                        <div class="bttn bttnBlue" ng-click="Events.modalRefund()">Asignar mensualmente</div>
+                        <div class="regund__input">
+                            <input type="text" ng-model="Form.numMontos"
+                                   ng-class="{true: 'inputError'}[Valid.numMontos]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="Content__10">
+            <div class="Content__modal Content__6">
+                <p>Nombre de usuario</p>
+                <div class="Modal__wrapper">
+                    <div class="wrapper__search" ng-click="Events.modalUsers()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="Content__10">
+                        <div class="Content__3">
+                            <div class="Content__input">
+                                <input type="text" ng-model="Form.dniEncargado" disabled
+                                       ng-class="{true: 'inputError'}[Valid.dniEncargado]">
+                            </div>
+                        </div>
+                        <div class="Content__7">
+                            <div class="Content__input">
+                                <input type="text" ng-model="Form.nombreCompleto" disabled
+                                       ng-class="{true: 'inputError'}[Valid.nombreCompleto]">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="Content__button" ng-if="profileId == 106">
+            <div class="bttn bttnBlue" ng-click="Services.update(Form)">Actualizar</div>
+        </div>
+    </div>
+
+</div>

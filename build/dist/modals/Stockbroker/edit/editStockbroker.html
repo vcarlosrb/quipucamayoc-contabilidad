@@ -1,0 +1,69 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Editar Bolsista</h4>
+    </div>
+    <div class="modal-body">
+        <div class="modForm">
+            <div class="mfBlock">
+                <p class="mLabel">Co. de matricula</p>
+                <div class="mfbInput">
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.codMatricula" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.nombreComp" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">DNI</p>
+                <div class="mfbInput">
+                    <div class="miSingle">
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.dniAlumno" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">Pertenece</p>
+                <div class="mfbInput">
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.codDependenciaPertenece" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.descDependenciaPertenece" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">Trabaja</p>
+                <div class="mfbInput">
+                    <div class="miSearch" ng-click="ModalDependence.show()">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.codDependencia" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Form.descDependencia" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cerrar</button>
+        <button class="bttn bttnBlue" ng-click="Services.update(Form)">
+            <span ng-show="!Services.loader">Guardar</span>
+            <div ng-show="Services.loader" class="loaderSpinner"></div>
+        </button>
+    </div>
+</div>

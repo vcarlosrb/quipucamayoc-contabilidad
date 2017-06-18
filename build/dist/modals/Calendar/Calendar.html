@@ -1,0 +1,26 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Ingrese Fecha</h4>
+    </div>
+    <div class="modal-body modCalendar">
+        <div class="modForm">
+            <div class="simpleInput">
+                <p>AÑO</p>
+                <select ng-model="Form.year" ng-options="year for year in Years">
+                    <!--<option value="{{year}}" ng-repeat="year in Years">{{year}}</option>-->
+                </select>
+            </div>
+            <div class="simpleInput">
+                <p>MES</p>
+                <select ng-model="Form.month" ng-options="month.id as month.name for month in Months">
+                    <!--<option ng-repeat="month in Months" value="{{month.id}}">{{month.name}}</option>-->
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Events.selectDate(Form)">Aceptar</button>
+    </div>
+</div>

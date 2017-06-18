@@ -1,0 +1,153 @@
+.partProvider {
+    .whiteContent {
+        padding: 20px;
+        margin-bottom: 20px;
+
+        .tableContent {
+            .color_P {
+                background-color: #F7F772;
+            }
+            .color_S {
+                background-color: white;
+            }
+            .color_I {
+                background-color: #F7C872;
+            }
+            .color_C {
+                background-color: #9DD6B4;
+            }
+            .color_N {
+                background-color: #FDBABA;
+            }
+        }
+
+        .pswAddNew {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid $border;
+        }
+
+        .pswSearch {
+            h4 {
+                font-family: font9;
+                color: $blackText;
+                margin-bottom: 20px;
+            }
+
+            .searchContent {
+                .bttn {
+                    position: relative;
+                    width: 100px;
+                    margin-left: 100px;
+                    min-height: 32px;
+                    padding: 0;
+                    span {
+                        line-height: 30px;
+                    }
+                }
+
+                .scList {
+                    margin-bottom: 15px;
+
+                    li {
+                        display: block;
+                        margin-bottom: 10px;
+
+                        span {
+                            color: rgb(100,100,100);
+                            font-family: font1;
+                            font-size: 12px;
+                            float: left;
+                            width: 100px;
+                            margin-top: 5px;
+                        }
+
+                        .sclSecond {
+                            margin-left: 100px;
+                            width: 400px;
+
+                            input {
+                                border: 1px solid #c8c8c8;
+                                width: 100%;
+                                height: 30px;
+                                padding: 0 10px;
+                                font-size: 12px;
+                                font-family: font8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .Refund--caption {
+            margin-top: 20px;
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 15px;
+                span, p {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 12px;
+                }
+                p {
+                    margin: 0;
+                }
+                span {
+                    border-radius: 2px;
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                }
+            }
+            .white {
+                span {
+                    border: 1px solid rgb(200, 200, 200);
+                }
+            }
+            .gray {
+                span {
+                    border: 1px solid rgb(200, 200, 200);
+                    background-color: rgb(220, 220, 220);
+                }
+            }
+            .blue {
+                span {
+                    border: 1px solid #7A91FF;
+                    background-color: #AFAFFF;
+                }
+            }
+            .pink {
+                span {
+                    border: 1px solid #F564FF;
+                    background-color: #FFC8FD;
+                }
+            }
+            .green {
+                span {
+                    border: 1px solid #73A785;
+                    background-color: #9DD6B4;
+                }
+            }
+            .red {
+                span {
+                    border: 1px solid #FF8989;
+                    background-color: #FDBABA;
+                }
+            }
+            .yellow {
+                span {
+                    border: 1px solid #C3C36E;
+                    background-color: #F7F772;
+                }
+            }
+            .orange {
+                span {
+                    border: 1px solid #F9B22D;
+                    background-color: #F7C872;
+                }
+            }
+        }
+    }
+}

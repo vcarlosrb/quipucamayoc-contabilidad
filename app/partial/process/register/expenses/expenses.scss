@@ -1,0 +1,36 @@
+.partExpenses {
+    .pr--Expenses__buttons {
+        margin-bottom: 20px;
+    }
+    .Expenses--table {
+        margin-bottom: 20px;
+        .tableContent {
+            tbody {
+                .color_P {
+                    border: 1px solid #C3C36E;
+                    background-color: #F7F772;
+                }
+                .color_S {
+                    border: 1px solid #c8c8c8;
+                    background-color: white;
+                }
+                .color_I {
+                    border: 1px solid #F9B22D;
+                    background-color: #F7C872;
+                }
+                .color_C {
+                    border: 1px solid #73A785;
+                    background-color: #9DD6B4;
+                }
+                .color_N {
+                    border: 1px solid #FF8989;
+                    background-color: #FDBABA;
+                }
+                .color_E {
+                    border: 1px solid #7A91FF;
+                    background-color: #AFAFFF;
+                }
+            }
+        }
+    }
+}

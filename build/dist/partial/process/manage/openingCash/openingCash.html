@@ -1,0 +1,170 @@
+<div class="partGeneral partOpeningCash" ng-controller="OpeningcashCtrl">
+
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Registros de apertura">
+                <md-content class="Register__content">
+                    <div class="Content__search">
+                        <div class="pswSearch">
+                            <h4>Buscar</h4>
+                            <div class="searchContent">
+                                <ul class="scList">
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="Search.type" value="0"> Registro:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="register" ng-model="Search.register" placeholder="Ingrese registro">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="Search.type" value="1">Dependencia:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="dependence" ng-model="Search.dependence" placeholder="Ingrese dependencia">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="Search.type" value="2">Encargado:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="glossary" ng-model="Search.glossary" placeholder="Ingrese encargado">
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="scButtons">
+                                    <div class="bttn bttnBlue" ng-click="Services.getSignupOpening(Search)">Buscar</div>
+                                    <div class="bttn bttnGray" ng-click="Events.clearSearchOpening()">Limpiar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="tableContent">
+                        <thead>
+                        <tr>
+                            <th>Registro</th>
+                            <th>Dependencia</th>
+                            <th>Encargado</th>
+                            <th>Mes</th>
+                            <th>Fecha</th>
+                            <th>Monto</th>
+                            <th ng-if="ProfileId == 106">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in SignupOpenings">
+                            <td>{{item.idRegContable}}</td>
+                            <td>{{item.descDependencia}}</td>
+                            <td>{{item.nombreEncargado}}</td>
+                            <td>{{item.mes}}</td>
+                            <td>{{item.fecha}}</td>
+                            <td>{{item.montoMensual}}</td>
+                            <td ng-if="ProfileId == 106">
+                                <ul class="tableOptions">
+                                    <li ng-show="item.aperturado === '0'">
+                                        <button ng-click="Events.goCashCreate(item.idRegContable)">
+                                            <md-tooltip md-direction="bottom">Aperturar caja</md-tooltip>
+                                            <i class="fa fa-money"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="contLoader" ng-show="Services.loader == true">
+                        <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+                    </div>
+                    <div class="emptyArray" ng-if="SignupOpenings.length==0" ng-show="Services.loader == false">
+                        <p>No hay resultados para mostrar.</p>
+                    </div>
+                    <div class="Pagination" ng-if="SignupOpenings.length>0" ng-show="Services.loader == false">
+                        <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                            ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                            first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Cajas chicas aperturadas">
+                <md-content class="Box__content">
+                    <div class="Content__search">
+                        <div class="pswSearch">
+                            <h4>Buscar</h4>
+                            <div class="searchContent">
+                                <ul class="scList">
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="SearchOpened.type" value="0"> Codigo:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="code" ng-model="SearchOpened.code" placeholder="Ingrese registro">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="SearchOpened.type" value="1">Dependencia:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="dependence" ng-model="SearchOpened.dependence" placeholder="Ingrese dependencia">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="SearchOpened.type" value="2">Encargado:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="attendant" ng-model="SearchOpened.attendant" placeholder="Ingrese encargado">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><input type="radio" name="type" ng-model="SearchOpened.type" value="3">Registro:</span>
+                                        <div class="sclSecond">
+                                            <input type="text" name="register" ng-model="SearchOpened.register" placeholder="Ingrese registro">
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="scButtons">
+                                    <div class="bttn bttnBlue" ng-click="Services.getSignupOpened(SearchOpened)">Buscar</div>
+                                    <div class="bttn bttnGray" ng-click="Events.clearSearchOpened()">Limpiar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="tableContent">
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Dependencia</th>
+                            <th>Encargado</th>
+                            <th>Registro</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in SignupOpened">
+                            <td>{{item.codCajaChica}}</td>
+                            <td>{{item.descDependencia}}</td>
+                            <td>{{item.nombreEncargado}}</td>
+                            <td>{{item.idRegContable}}</td>
+                            <td>{{item.montoMensual}}</td>
+                            <td>
+                                <ul class="tableOptions">
+                                    <li>
+                                        <button ng-click="Events.goDetail(item.idCajaChica)">
+                                            <md-tooltip md-direction="bottom">Detalle</md-tooltip>
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="contLoader" ng-show="Services.loaderOpened == true">
+                        <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+                    </div>
+                    <div class="emptyArray" ng-if="SignupOpened.length==0" ng-show="Services.loaderOpened == false">
+                        <p>No hay resultados para mostrar.</p>
+                    </div>
+                    <div class="Pagination" ng-if="SignupOpened.length>0" ng-show="Services.loaderOpened == false">
+                        <ul uib-pagination boundary-links="true" max-size="PaginationOpened.maxSize" total-items="PaginationOpened.total"
+                            ng-model="PaginationOpened.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                            first-text="&laquo;" last-text="&raquo;" ng-change="PaginationOpened.changePage()"></ul>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+
+</div>

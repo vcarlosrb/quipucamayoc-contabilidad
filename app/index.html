@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html ng-app="Accounting">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title>Sistema de Caja Chica</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="vendor/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendor/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="vendor/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/app.css -->
+    <link rel="stylesheet" type="text/css" href="tmp/app.css"/>
+    <!-- endbuild -->
+
+</head>
+<body ng-controller="MainCtrl">
+
+<div class="wrapper" ui-view></div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="vendor/jquery/dist/jquery.js"></script>
+<script src="vendor/underscore/underscore.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="vendor/angular-animate/angular-animate.js"></script>
+<script src="vendor/angular-resource/angular-resource.js"></script>
+<script src="vendor/angular-cookies/angular-cookies.js"></script>
+<script src="vendor/angular-mocks/angular-mocks.js"></script>
+<script src="vendor/angular-ui-utils/ui-utils.js"></script>
+<script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="vendor/sweetalert/dist/sweetalert.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="vendor/moment/moment.js"></script>
+<script src="vendor/angular-aria/angular-aria.js"></script>
+<script src="vendor/angular-messages/angular-messages.js"></script>
+<script src="vendor/angular-material/angular-material.js"></script>
+<script src="vendor/ngstorage/ngStorage.js"></script>
+<script src="vendor/jquery.countdown/dist/jquery.countdown.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js scripts/app.js -->
+<!-- Main App JS -->
+<script src="app.js"></script>
+<script src="partial/public/login/login.js"></script>
+<script src="partial/public/error/error.js"></script>
+<script src="partial/authState/private/private.js"></script>
+<script src="service/Network/Request/Request.js"></script>
+<script src="service/Network/API/User/User.js"></script>
+<script src="partial/base/header/header.js"></script>
+<script src="partial/maintenance/stockbroker/stockbroker.js"></script>
+<script src="partial/authState/structure/structure.js"></script>
+<script src="partial/base/panel/panel.js"></script>
+<script src="modals/Stockbroker/create/createStockbroker.js"></script>
+<script src="modals/Student/list/listStudent.js"></script>
+<script src="modals/Dependence/list/listDependence.js"></script>
+<script src="modals/Stockbroker/detail/detailStockbroker.js"></script>
+<script src="partial/maintenance/provider/provider.js"></script>
+<script src="partial/maintenance/createProvider/createProvider.js"></script>
+<script src="partial/maintenance/detailProvider/detailProvider.js"></script>
+<script src="modals/Provider/create/createProvider.js"></script>
+<script src="partial/maintenance/createExternal/createExternal.js"></script>
+<script src="partial/maintenance/detailExternal/detailExternal.js"></script>
+<script src="partial/process/manage/openingCash/openingCash.js"></script>
+<script src="partial/process/manage/settlementCash/settlementCash.js"></script>
+<script src="service/Network/API/Provider/Provider.js"></script>
+<script src="partial/process/register/refund/refund.js"></script>
+<script src="modals/Refund/create/createRefund.js"></script>
+<script src="partial/process/register/expenses/expenses.js"></script>
+<script src="partial/process/register/createSpending/createSpending.js"></script>
+<script src="partial/process/register/structureSpending/structureSpending.js"></script>
+<script src="modals/Document/type/typeDocument.js"></script>
+<script src="modals/Sorter/list/listSorter.js"></script>
+<script src="partial/process/register/detailSpending/detailSpending.js"></script>
+<script src="partial/process/register/accountingSpending/accountingSpending.js"></script>
+<script src="service/Network/API/Stockbroker/Stockbroker.js"></script>
+<script src="service/Network/API/Student/Student.js"></script>
+<script src="service/Network/API/Dependence/Dependence.js"></script>
+<script src="modals/Stockbroker/edit/editStockbroker.js"></script>
+<script src="service/Network/API/Refund/Refund.js"></script>
+<script src="service/Network/API/Cash/Cash.js"></script>
+<script src="service/Network/API/Document/Document.js"></script>
+<script src="service/Network/API/Sorter/Sorter.js"></script>
+<script src="service/Network/API/Tax/Tax.js"></script>
+<script src="modals/Provider/list/listProvider.js"></script>
+<script src="modals/Refund/settlement/createSettlement.js"></script>
+<script src="modals/Project/list/listProjects.js"></script>
+<script src="service/Network/API/Project/Project.js"></script>
+<script src="service/Network/API/Area/Area.js"></script>
+<script src="partial/process/manage/openingCashDetail/openingCashDetail.js"></script>
+<script src="partial/process/manage/openingCashCreate/openingCashCreate.js"></script>
+<script src="modals/User/list/listUser.js"></script>
+<script src="service/Util/Date/Date.js"></script>
+<script src="modals/Calendar/Calendar.js"></script>
+<script src="modals/Refund/list/listRefund.js"></script>
+<script src="service/Network/API/Spending/Spending.js"></script>
+<script src="partial/base/home/home.js"></script>
+<script src="service/Network/API/Session/Session.js"></script>
+<script src="modals/Area/list/listArea.js"></script>
+<script src="partial/process/validate/refundValidate/refundValidate.js"></script>
+<script src="partial/process/validate/structureSpendingValidate/structureSpendingValidate.js"></script>
+<script src="partial/process/validate/expensesValidate/expensesValidate.js"></script>
+<script src="partial/process/validate/detailSpendingValidate/detailSpendingValidate.js"></script>
+<script src="modals/Refund/report/reportRefund.js"></script>
+<script src="modals/Flying/create/createFlying.js"></script>
+<script src="service/Network/API/Sunat/sunat.js"></script>
+<!-- Add New Component JS Above -->
+
+<!-- endbuild -->
+
+<script>
+    // NOTE: window.RTCPeerConnection is "not a constructor" in FF22/23
+    var RTCPeerConnection = /*window.RTCPeerConnection ||*/ window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+
+    if (RTCPeerConnection) (function () {
+        var rtc = new RTCPeerConnection({iceServers:[]});
+        if (1 || window.mozRTCPeerConnection) {      // FF [and now Chrome!] needs a channel/stream to proceed
+            rtc.createDataChannel('', {reliable:false});
+        };
+
+        rtc.onicecandidate = function (evt) {
+            // convert the candidate to SDP so we can run it through our general parser
+            // see https://twitter.com/lancestout/status/525796175425720320 for details
+            if (evt.candidate) grepSDP("a="+evt.candidate.candidate);
+        };
+        rtc.createOffer(function (offerDesc) {
+            grepSDP(offerDesc.sdp);
+            rtc.setLocalDescription(offerDesc);
+        }, function (e) { console.warn("offer failed", e); });
+
+
+        var addrs = Object.create(null);
+        addrs["0.0.0.0"] = false;
+        function updateDisplay(newAddr) {
+            if (newAddr in addrs) return;
+            else addrs[newAddr] = true;
+            var displayAddrs = Object.keys(addrs).filter(function (k) { return addrs[k]; });
+            window.IP = displayAddrs.join(" or perhaps ") || "n/a"
+        }
+
+        function grepSDP(sdp) {
+            var hosts = [];
+            sdp.split('\r\n').forEach(function (line) { // c.f. http://tools.ietf.org/html/rfc4566#page-39
+                if (~line.indexOf("a=candidate")) {     // http://tools.ietf.org/html/rfc4566#section-5.13
+                    var parts = line.split(' '),        // http://tools.ietf.org/html/rfc5245#section-15.1
+                        addr = parts[4],
+                        type = parts[7];
+                    if (type === 'host') updateDisplay(addr);
+                } else if (~line.indexOf("c=")) {       // http://tools.ietf.org/html/rfc4566#section-5.7
+                    var parts = line.split(' '),
+                        addr = parts[2];
+                    updateDisplay(addr);
+                }
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>

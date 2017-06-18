@@ -1,0 +1,126 @@
+/* Required for Angular UI Bootstrap */
+.carousel,
+.nav,
+.pagination,
+.panel-title a {
+    cursor: pointer;
+}
+@import "assets/mixins/responsive";
+@import "assets/mixins/animations";
+@import "assets/mixins/variables";
+@import "assets/mixins/refactor";
+@import "assets/mixins/fonts";
+@import "assets/mixins/components";
+/************** RESETS *****************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+html,
+li,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1 img {
+    display: block;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nf {
+    clear: both;
+}
+
+button,
+input,
+select,
+textarea {
+    outline: none;
+    border: none;
+}
+/*********** STYLE ************/
+.partPrivate,
+.partStructure,
+.wrapper,
+body,
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #EDECEC;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* Component SCSS */
+@import "partial/public/login/login.scss";
+@import "partial/public/error/error.scss";
+@import "partial/authState/private/private.scss";
+@import "partial/base/header/header.scss";
+@import "partial/maintenance/stockbroker/stockbroker.scss";
+@import "partial/authState/structure/structure.scss";
+@import "partial/base/panel/panel.scss";
+@import "modals/Stockbroker/create/createStockbroker.scss";
+@import "modals/Student/list/listStudent.scss";
+@import "modals/Dependence/list/listDependence.scss";
+@import "modals/Stockbroker/detail/detailStockbroker.scss";
+@import "partial/maintenance/provider/provider.scss";
+@import "partial/maintenance/createProvider/createProvider.scss";
+@import "partial/maintenance/detailProvider/detailProvider.scss";
+@import "modals/Provider/create/createProvider.scss";
+@import "partial/maintenance/createExternal/createExternal.scss";
+@import "partial/maintenance/detailExternal/detailExternal.scss";
+@import "partial/process/manage/openingCash/openingCash.scss";
+@import "partial/process/manage/settlementCash/settlementCash.scss";
+@import "partial/process/register/refund/refund.scss";
+@import "modals/Refund/create/createRefund.scss";
+@import "partial/process/register/expenses/expenses.scss";
+@import "partial/process/register/createSpending/createSpending.scss";
+@import "partial/process/register/structureSpending/structureSpending.scss";
+@import "modals/Document/type/typeDocument.scss";
+@import "modals/Sorter/list/listSorter.scss";
+@import "partial/process/register/detailSpending/detailSpending.scss";
+@import "partial/process/register/accountingSpending/accountingSpending.scss";
+@import "modals/Stockbroker/edit/editStockbroker.scss";
+@import "modals/Provider/list/listProvider.scss";
+@import "modals/Refund/settlement/createSettlement.scss";
+@import "modals/Project/list/listProjects.scss";
+@import "partial/process/manage/openingCashDetail/openingCashDetail.scss";
+@import "partial/process/manage/openingCashCreate/openingCashCreate.scss";
+@import "modals/User/list/listUser";
+@import "modals/Calendar/Calendar.scss";
+@import "modals/Refund/list/listRefund.scss";
+@import "partial/base/home/home.scss";
+@import "modals/Area/list/listArea.scss";
+@import "partial/process/validate/refundValidate/refundValidate.scss";
+@import "partial/process/validate/structureSpendingValidate/structureSpendingValidate.scss";
+@import "partial/process/validate/expensesValidate/expensesValidate.scss";
+@import "partial/process/validate/detailSpendingValidate/detailSpendingValidate.scss";
+@import "modals/Refund/report/reportRefund.scss";
+@import "modals/Flying/create/createFlying.scss";
+/* Add Component SCSS Above */
+/* Personal preference for BS modals.  The SCSS below makes the backdrop white and
+   causes the modals to fade in rather than slide in. */
+//@modals-backdrop-bg: white;
+//.modals {
+//	&.fade {
+//		.transition(opacity .3s);
+//	}
+//	&.fade .modals-dialog {
+//		.translate(0,0);
+//	}
+//}

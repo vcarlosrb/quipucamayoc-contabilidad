@@ -1,0 +1,147 @@
+.partCreateSpending {
+    .pcSpending__title {
+        font-family: font8;
+        font-size: 16px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    .pcSpending__form {
+        margin-bottom: 30px;
+        .pcs--form_item {
+            p {
+                font-family: font8;
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+            textarea, input, select {
+                border: 1px solid #c8c8c8;
+                width: 100%;
+                height: 30px;
+                padding: 0 10px;
+                font-size: 12px;
+                font-family: font8;
+            }
+            textarea {
+                padding: 10px;
+                height: 70px;
+                resize: none;
+            }
+        }
+        .pcs--form__2 {
+            .pcs--form__input2 {
+                width: 40%;
+                float: left;
+                padding-left: 19px;
+                margin-bottom: 20px;
+                .cont__checkbox {
+                    height: 75px;
+                    overflow-y: auto;
+                    padding: 5px;
+                    border: 1px solid rgb(230, 230, 230);
+                    md-checkbox {
+                        display: block;
+                        margin-bottom: 5px;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                p {
+                    font-family: font8;
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+                .pcs--Picker {
+                    .pcs--Picker__icon {
+                        float: right;
+                        width: 40px;
+                        border-radius: 2px;
+                        color: white;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        background-color: #337ab7;
+                        cursor: pointer;
+                    }
+                    .pcs--Picker__input {
+                        margin-right: 50px;
+                        .pcs--form_item {
+                            width: 50%;
+                            float: left;
+                            padding: 0 1px;
+                        }
+                    }
+                }
+            }
+            .pcs--form__3 {
+                width: 60%;
+                float: left;
+            }
+            .pcs--RUC {
+                .pcs--form__input2 {
+                    width: 100%;
+                    .pcs--Picker__icon {
+                        margin-top: 21px;
+                    }
+                }
+            }
+        }
+        .pcs--form__3 {
+            .pcs--form_item {
+                width: 33%;
+                float: left;
+                padding: 0 20px;
+            }
+        }
+    }
+    .pcSpending__tables {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        h5 {
+            font-family: font9;
+            margin-bottom: 10px;
+            overflow: hidden;
+            .bttn {
+                float: right;
+                padding: 7px 15px;
+            }
+        }
+        .tableDependence {
+            tbody {
+                tr {
+                    background-color: white;
+                    td {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .tableSorter {
+            tbody {
+                tr {
+                    td {
+                        text-align: center;
+                    }
+                    input {
+                        text-align: center;
+                        border: 1px solid rgb(230,230,230);
+                    }
+                }
+            }
+        }
+    }
+    .pcSpending__button {
+        text-align: center;
+        .bttn {
+            min-height: 40px;
+            width: 200px;
+            text-align: center;
+            padding: 0;
+            span {
+                line-height: 38px;
+            }
+        }
+    }
+}

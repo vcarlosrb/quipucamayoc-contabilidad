@@ -1,0 +1,50 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Alumnos</h4>
+    </div>
+    <div class="modal-body modStudent">
+        <div class="lsSearch">
+            <div class="bttn bttnBlue" ng-click="Services.search(Search)">Buscar</div>
+            <div class="lsInput">
+                <input type="text" placeholder="Codigo" ng-model="Search.filter">
+            </div>
+        </div>
+        <div class="lsTable">
+            <div class="lsWrapper">
+                <table class="tableContent">
+                    <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre y apellidos</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="student in Students" ng-click="Events.selectStudent($event, student)">
+                        <td>{{student.codAlumno}}</td>
+                        <td>{{student.nombreCompleto}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contLoader" ng-show="Services.loader == true">
+                <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+            </div>
+            <div class="emptyArray" ng-if="Students.length==0" ng-show="Services.loader == false">
+                <p>No hay resultados para mostrar.</p>
+            </div>
+            <div class="Pagination" ng-if="Students.length>0" ng-show="Services.loader == false">
+                <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                    ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                    first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+            </div>
+            <div class="Message__error">
+                <p ng-show="Valid.code">* Debe seleccionar un estudiante.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Events.accept()">Aceptar</button>
+    </div>
+</div>

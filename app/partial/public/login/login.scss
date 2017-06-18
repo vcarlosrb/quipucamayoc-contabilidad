@@ -1,0 +1,228 @@
+.partLogin {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .plContent {
+        position: relative;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+    }
+}
+
+.plWrapper {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    width: 100%;
+
+    .plwContent {
+        width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.plwContent {
+    h3 {
+        text-shadow: 0 0 20px rgb(0, 0, 0);
+        color: white;
+        font-size: 35px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: font8;
+    }
+}
+
+.loginWrap {
+    background-color: white;
+
+    .lwContent {
+        padding: 30px;
+
+        h5 {
+            margin: 0 0 20px;
+            color: $grayText;
+            font-size: 20px;
+            font-family: font8;
+        }
+
+        .lwInputs {
+            input {
+                width: 100%;
+                border: 1px solid rgb(200, 200, 200);
+                padding: 7px 10px;
+                font-family: font8;
+                margin-bottom: 10px;
+            }
+            .lwiEmail {
+                overflow: hidden;
+                .text {
+                    float: right;
+                    width: 150px;
+                    padding: 0 10px;
+                    background-color: rgb(230, 230, 230);
+                    border-top: 1px solid rgb(200, 200, 200);
+                    border-bottom: 1px solid rgb(200, 200, 200);
+                    border-right: 1px solid rgb(200, 200, 200);
+                    p {
+                        margin-bottom: 0;
+                        font-family: font9;
+                        line-height: 34px;
+                    }
+                }
+                .input {
+                    margin-right: 150px;
+                }
+            }
+        }
+
+        .lwOptions {
+            padding: 2px 0;
+            .bttnBlue {
+                min-height: 37px;
+                position: relative;
+                display: block;
+                padding: 0 15px;
+                span {
+                    line-height: 35px;
+                }
+            }
+        }
+
+        .loader {
+            display: none;
+            width: 40px;
+        }
+    }
+
+    .lwForget {
+        cursor: pointer;
+        background-color: $gray;
+        padding: 15px 0;
+        text-align: center;
+
+        p {
+            font-size: 12px;
+            font-family: font9;
+            color: rgb(150, 150, 150);
+            margin: 0;
+        }
+    }
+}
+
+/* LOADER */
+.contLoad {
+    display: none;
+    padding: 150px 0;
+
+    @include responsive ('600px') {
+        padding: 50px 0;
+    }
+}
+
+.loader {
+    position: relative;
+    margin: 0 auto;
+    width: 60px;
+}
+
+.loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.circular {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.path,
+.pathBlue {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+}
+
+.path {
+    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+}
+
+.pathBlue {
+    -webkit-animation: dash 1.5s ease-in-out infinite, colorBlue 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, colorBlue 6s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@-webkit-keyframes color {
+    0%,
+    100% {
+        stroke: $blue;
+    }
+}
+
+@keyframes color {
+    0%,
+    100% {
+        stroke: $blue;
+    }
+}

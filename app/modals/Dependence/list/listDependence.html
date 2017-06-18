@@ -1,0 +1,84 @@
+<div>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Dependencias</h4>
+    </div>
+    <div class="modal-body modDependence">
+        <div class="mdInput">
+            <input type="text" disabled placeholder="Codigo - Descripcion" ng-model="previewDependence">
+        </div>
+        <div class="tableAccordion" style="margin-bottom: 20px">
+            <div class="tbBlock initList">
+                <div class="tbText">
+                    <div class="tbtCheck" ng-click="Events.selectDependence(DependenceParent, $event)">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <div class="tbtContent">
+                        <i class="fa fa-caret-right"></i>
+                        <p>{{DependenceParent.codDependencia}} - {{DependenceParent.descDependencia}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdTable">
+            <div class="tableAccordion">
+                <div class="tbBlock initList" ng-repeat="dependence in Dependencies">
+                    <div class="tbText">
+                        <div class="tbtCheck" ng-click="Events.selectDependence(dependence, $event)">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="tbtContent" ng-click="Events.toggleSlide($event, 1, dependence)">
+                            <i class="fa fa-caret-right"></i>
+                            <p>{{dependence.codDependencia}} - {{dependence.descDependencia}}</p>
+                        </div>
+                    </div>
+                    <div class="tbBlock firstSub" >
+                        <div ng-repeat="obj in dependence.sub">
+                            <div class="tbText">
+                                <div class="tbtCheck" ng-click="Events.selectDependence(obj, $event)">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="tbtContent" ng-click="Events.toggleSlide($event, 2, obj)">
+                                    <i class="fa fa-caret-right"></i>
+                                    <p>{{obj.codDependencia}} - {{obj.descDependencia}}</p>
+                                </div>
+                            </div>
+                            <div class="tbBlock secondSub">
+                                <div ng-repeat="iter in obj.sub">
+                                    <div class="tbText">
+                                        <div class="tbtCheck" ng-click="Events.selectDependence(iter, $event)">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                        <div class="tbtContent">
+                                            <i class="fa fa-caret-right"></i>
+                                            <p>{{iter.codDependencia}} - {{iter.descDependencia}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contLoader cl2">
+                                    <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contLoader cl1">
+                            <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contLoader" ng-show="Services.loader == true">
+                <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+            </div>
+            <div class="emptyArray" ng-if="Dependencies.length==0" ng-show="Services.loader == false">
+                <p>No hay resultados para mostrar.</p>
+            </div>
+            <div class="Message__error">
+                <p ng-show="Valid.dependence">* Debe seleccionar una dependencia.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="bttn bttnGray" ng-click="$dismiss()">Cancelar</button>
+        <button class="bttn bttnBlue" ng-click="Events.accept()">Aceptar</button>
+    </div>
+</div>

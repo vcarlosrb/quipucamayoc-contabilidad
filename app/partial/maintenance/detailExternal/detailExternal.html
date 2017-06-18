@@ -1,0 +1,114 @@
+<div class="partGeneral partCreateProvider" ng-controller="DetailexternalCtrl as External">
+
+    <div class="contBack">
+        <div class="back" ng-click="Events.goProviders()">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            <span>Lista de proveedores</span>
+        </div>
+    </div>
+
+    <h1 class="pTitle">DETALLE SERVICIO A TERCEROS</h1>
+
+    <div class="whiteContent">
+        <div class="pcpBlock">
+            <h4>Estados</h4>
+            <div class="pc--Provider__form">
+                <div class="pcp--form__3">
+                    <div class="pcp--form_item">
+                        <p>Nacionalidad</p>
+                        <select ng-model="ProviderData.nacionProveedor"
+                                ng-class="{true: 'inputError'}[Valid.nacionProveedor]">
+                            <option value="1">Nacional</option>
+                            <option value="2">Internacional</option>
+                        </select>
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Estado</p>
+                        <select ng-model="ProviderData.tipoPersona">
+                            <option value="P">Por validar</option>
+                            <option value="I">Por corregir</option>
+                            <option value="S">Valido</option>
+                            <option value="C">Corregido</option>
+                            <option value="N">De baja</option>
+                        </select>
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Tipo de persona</p>
+                        <select>
+                            <option value="" disabled>Servidor a terceros</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="whiteContent">
+        <div class="pcpBlock">
+            <h4>Servicio a Terceros</h4>
+            <div class="pc--Provider__form">
+                <div class="pcp--form__2">
+                    <div class="pcp--form_item">
+                        <p>RUC</p>
+                        <input type="text" placeholder="Registro unico de contribuyente"
+                               ng-model="ProviderData.ruc" disabled
+                               ng-class="{true: 'inputError'}[Valid.ruc]"
+                               onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0">
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Direccion</p>
+                        <input type="text" placeholder="Avenida, calle .."
+                               ng-model="ProviderData.direccion" disabled
+                               ng-class="{true: 'inputError'}[Valid.direccion]">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="pcp--form__3">
+                    <div class="pcp--form_item">
+                        <p>Nombre</p>
+                        <input type="text" placeholder="Nombres" ng-class="{true: 'inputError'}[Valid.nombre]"
+                               ng-model="ProviderData.nombre" disabled>
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Apellido paterno</p>
+                        <input type="text" placeholder="Apellido paterno" ng-model="ProviderData.apePaterno"
+                               ng-class="{true: 'inputError'}[Valid.apePaterno]" disabled>
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Apellido materno</p>
+                        <input type="text" placeholder="Apellido materno" ng-model="ProviderData.apeMaterno"
+                               ng-class="{true: 'inputError'}[Valid.apeMaterno]" disabled>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="pcp--form__3">
+                    <div class="pcp--form_item">
+                        <p>Nombre Completo</p>
+                        <input type="text" placeholder="Nombre Completo" ng-model="ProviderData.razonSocial" disabled>
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Telefono</p>
+                        <input type="text" placeholder="Numero telefonico" ng-model="ProviderData.telefono"
+                               onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0">
+                    </div>
+                    <div class="pcp--form_item">
+                        <p>Observacion</p>
+                        <input type="text" placeholder="Observaciones .." ng-model="ProviderData.observacion">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="pc--Provider__button">
+                <div class="bttn bttnGray" ng-click="Events.goProviders()">
+                    <span>Cancelar</span>
+                </div>
+                <div class="bttn bttnBlue" ng-click="Services.update(ProviderData)">
+                    <span ng-show="!Services.loader">Actualizar</span>
+                    <div ng-show="Services.loader" class="loaderSpinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

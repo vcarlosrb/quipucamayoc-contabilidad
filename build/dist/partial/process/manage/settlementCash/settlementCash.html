@@ -1,0 +1,134 @@
+<div class="partGeneral partRefund" ng-controller="SettlementcashCtrl as Refund">
+
+    <h1 class="pTitle">PRE REEMBOLSO</h1>
+
+    <div class="whiteContent">
+        <div class="pr--Refund__buttons">
+            <div class="bttn bttnBlue" ng-click="Refund.ModalRefund.show()">Nuevo Reembolso</div>
+            <div class="bttn bttnGreen" ng-click="Refund.ModalRefund.settlement()">Liquidar Caja chica</div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="pr--Refund__wrapper">
+            <h2 class="Refund__title">CODIGO DE CAJA CHICA: <span>C0{{idCajaChica}}</span></h2>
+            <div class="Refund__subtitle">
+                <div class="Subtitle__block">
+                    <strong>Encargado: </strong>Juan Carlos Gonzales
+                </div>
+                <div class="Subtitle__block">
+                    <strong>Monto max. mensual:</strong> S/ 3000.0
+                </div>
+                <div class="Subtitle__block">
+                    <strong>Monto max. por doc:</strong> S/ 100.0
+                </div>
+                <div class="Subtitle__block">
+                    <strong>Vuelta:</strong> NO
+                </div>
+            </div>
+            <div class="Refund--table">
+                <table class="tableContent">
+                    <thead>
+                    <tr>
+                        <th>Nro Reembolso</th>
+                        <th>Tipo</th>
+                        <th>Mes</th>
+                        <th>Fecha y hora</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                        <th>Reg. Contable</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="refund in Refunds" class="color_{{refund.codEstadoReembolso}}">
+                        <td>{{refund.numReembolso}}</td>
+                        <td>{{refund.tipoReembolso}}</td>
+                        <td>{{refund.mes}}</td>
+                        <td>{{refund.fechaCreacion}}</td>
+                        <td>{{refund.montoReembolso}}</td>
+                        <td>{{refund.codEstadoReembolso}}</td>
+                        <td></td>
+                        <td>
+                            <ul class="tableOptions">
+                                <li ng-click="Refund.Events.selectRefund($event, refund.idReembolso)"
+                                    ng-show="refund.tipoReembolso === 'R'">
+                                    <button title="Gastos">
+                                        <i class="fa fa-money"></i>
+                                    </button>
+                                </li>
+                                <li ng-click="Refund.Events.goAccountingSpending($event, refund.idReembolso)"
+                                    ng-show="refund.tipoReembolso === 'R'">
+                                    <button title="Generar registro">
+                                        <i class="fa fa-file-text"></i>
+                                    </button>
+                                </li>
+                                <li ng-show="refund.tipoReembolso === 'L'" ng-click="Services.updateState(refund)">
+                                    <button title="Cerrar liquidacion">
+                                        <i class="fa fa-handshake-o"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button title="Resumen por partida">
+                                        <!--<i class="fa fa-file-pdf-o"></i>-->
+                                        <strong>R</strong>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button title="Listado detallado">
+                                        <!--<i class="fa fa-file-pdf-o"></i>-->
+                                        <strong>D</strong>
+                                    </button>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contLoader" ng-show="Services.loader == true">
+                <md-progress-circular class="" md-diameter="40"></md-progress-circular>
+            </div>
+            <div class="emptyArray" ng-if="Refunds.length==0" ng-show="Services.loader == false">
+                <p>No hay reembolsos para mostrar.</p>
+            </div>
+            <div class="Pagination" ng-if="Refunds.length>0" ng-show="Services.loader == false">
+                <ul uib-pagination boundary-links="true" max-size="Pagination.maxSize" total-items="Pagination.total"
+                    ng-model="Pagination.current" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                    first-text="&laquo;" last-text="&raquo;" ng-change="Pagination.changePage()"></ul>
+            </div>
+            <ul class="Refund--caption rCaption">
+                <li class="white">
+                    <span>N</span>
+                    <p>Nuevo</p>
+                </li>
+                <li class="gray">
+                    <span>P</span>
+                    <p>Pre Comp.</p>
+                </li>
+                <li class="blue">
+                    <span>C</span>
+                    <p>Comprometido</p>
+                </li>
+                <li class="pink">
+                    <span>D</span>
+                    <p>Devengado</p>
+                </li>
+                <li class="green">
+                    <span>G</span>
+                    <p>Girado</p>
+                </li>
+                <li class="red">
+                    <span>R</span>
+                    <p>Rechazado</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="whiteContent Refund__variable">
+        <div class="rVariable__close" ng-click="Refund.Events.closeRefund()">
+            <i class="fa fa-close"></i>
+        </div>
+        <div ui-view="refund"></div>
+    </div>
+
+</div>

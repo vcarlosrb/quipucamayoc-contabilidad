@@ -1,0 +1,35 @@
+<div class="partLogin" ng-controller="LoginCtrl" style="background-image: url(assets/images/company.jpg)">
+
+  <div class="plContent">
+          <div class="plWrapper">
+              <div class="plwContent">
+                  <h3>SISTEMA DE CAJA CHICA</h3>
+                  <div class="loginWrap">
+                      <div class="lwContent">
+                          <h5>INGRESAR</h5>
+                          <div class="lwInputs">
+                              <div class="lwiEmail">
+                                  <div class="text">
+                                      <p>@unmsm.edu.pe</p>
+                                  </div>
+                                  <div class="input">
+                                      <input type="text" placeholder="Usuario" ng-model="Form.username"
+                                             ng-class="{true: 'inputError'}[Valid.username]" name="username">
+                                  </div>
+                              </div>
+                              <input type="password" placeholder="Contraseña" ng-model="Form.password"
+                                     ng-class="{true: 'inputError'}[Valid.password]" name="password">
+                          </div>
+                          <div class="lwOptions">
+                              <div class="bttn bttnBlue" ng-click="Services.login(Form)">
+                                  <span ng-show="!Services.loader">Ingresar</span>
+                                  <div ng-show="Services.loader" class="loaderSpinner"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+</div>

@@ -1,0 +1,58 @@
+.modFlying {
+    .mf__content {
+        ul {
+            padding: 0;
+            margin: 0;
+            li {
+                display: block;
+                margin-bottom: 15px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .first {
+                    margin-top: 7px;
+                    float: left;
+                    width: 140px;
+                    font-family: font9;
+                    font-size: 12px;
+                    color: rgb(100, 100, 100);
+                }
+                .second {
+                    margin-left: 140px;
+                    select, input {
+                        width: 100%;
+                        padding: 0 10px;
+                        height: 32px;
+                        font-size: 12px;
+                        border-radius: 1px;
+                        border: 1px solid rgb(220, 220, 220);
+                    }
+                    .double {
+                        .button {
+                            height: 32px;
+                            width: 32px;
+                            border-radius: 2px;
+                            background-color: $blue;
+                            color: white;
+                            line-height: 32px;
+                            text-align: center;
+                            float: right;
+                        }
+                        .input {
+                            margin-right: 42px;
+                            overflow: hidden;
+                            input {
+                                width: 49%;
+                                margin-right: 2%;
+                                float: left;
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

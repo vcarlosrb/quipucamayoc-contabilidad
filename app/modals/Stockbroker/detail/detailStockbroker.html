@@ -1,0 +1,62 @@
+<div>
+	<div class="modal-header">
+		<button type="button" class="close pull-right" ng-click="$dismiss()" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">Detalle Bolsista</h4>
+	</div>
+	<div class="modal-body">
+        <div class="modForm">
+            <div class="mfBlock">
+                <p class="mLabel">Co. de matricula</p>
+                <div class="mfbInput">
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.codMatricula" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.nombreComp" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">DNI</p>
+                <div class="mfbInput">
+                    <div class="miSingle">
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.dniAlumno" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">Pertenece</p>
+                <div class="mfbInput">
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.codDependenciaPertenece" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.descDependenciaPertenece" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mfBlock">
+                <p class="mLabel">Trabaja</p>
+                <div class="mfbInput">
+                    <div class="miDouble">
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.codDependenciaLabora" disabled>
+                        </div>
+                        <div class="unInput">
+                            <input type="text" ng-model="Stockbroker.descDependenciaLabora" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button class="bttn bttnGray" ng-click="$dismiss()">Cerrar</button>
+	</div>
+</div>
